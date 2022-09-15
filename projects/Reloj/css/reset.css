@@ -1,80 +1,84 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;900&display=swap');
 
-/* Custom properties */
-:root {
-  --negro: #393939;
-  /* Tipografía */
-  --tipo-principal:  'Poppins', sans-serif;
-  --tipo-secundaria: Verdana;
+/* ✔Custom Properties */
+:root{
+  --color-primario:#181818;
+  --color-secundario:#f0f0f0;
+
+  /* Typography */
+  --tipo-principal:'Poppins', sans-serif;
+  --tipo-secundaria:Verdana;
 }
 
-/* Adaptadas al modo oscuro */
+/* ✔ Custom Properties adapted to dark mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --negro: #ececec;
+  :root{
+    --color-primario:#f0f0f0;
+    --color-secundario:#181818;
   }
 }
-/* Opcional */
-/* Configuración si un usuario ha activado el modo alto contraste. (WD) */
-/* Opcional */
-/* Desactivar los animations en el caso de que el usuario haya configurado el modo sin animation */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    -webkit-animation: none !important;
-            animation: none !important;
-    -webkit-transition: none !important;
-    transition: none !important;
+
+/* Optional */
+/* ✔ Configuration, if the user has activated the high contrast mode (WD) */
+@media (prefers-contrast: high){
+  :root{
+    --color-primario:black;
+    --color-secundario:white;
   }
 }
-/* Reseteando los margin y paddings de todas las etiquetas */
-* {
+
+/* Optional */
+/* ✔ Configuring the animations, in case the user has disabled the animations. */
+@media(prefers-reduced-motion: reduce){
+  /* I advise to put the specific tag, because it affects the performance with "*" */
+  *{
+    animation: none;
+    transition: none;
+  }
+}
+
+
+/* ✔ Resetting the margins & paddings of all tags */
+*{
   margin: 0;
   padding: 0;
-  border: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  vertical-align: baseline;
+  border:0;
+  box-sizing: border-box; /* To avoid problems in box model */
+  vertical-align: baseline; /* To align text & images */
 }
 
-/* Evitando problemas con las imagenes */
-img, picture, video, iframe, figure {
+/* ✔ To avoid problems with images */
+img, picture, video, iframe, figure{
   max-width: 100%;
   width: 100%;
   display: block;
-  /* opcional */
-  -o-object-fit: cover;
-     object-fit: cover;
-  /* opcional */
-  -o-object-position: center center;
-     object-position: center center;
+  /* opcional */ object-fit: cover;
+  /* opcional */ object-position: center center;
 }
 
-/* Reseteando enlaces para trabajarlas como cajas... */
-a {
+/* ✔ Resetting the links to work as boxes... */
+a{
   display: block;
-  text-decoration: none;
-  color: inherit;
-  font-size: inherit;
 }
 
-/* ...a excepcion de los que se encuentran en párrafos */
-p a {
+/* ✔ ...Except those found in paragraphs */
+p a{
   display: inline;
 }
 
-/* Quitando las etiquetas(puntos) de los <li> */
-li {
+/* ✔ Removing dots from <li> */
+li{
   list-style-type: none;
 }
 
-/* Configurando anclas suaves */
-html {
+/* ✔ Setting soft anchors. */
+html{
   scroll-behavior: smooth;
 }
 
-/* Desactivando estilos por defecto de las principales etiquetas de texto */
-h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+/* ✔ Disabling default styles of the main text labels. */
+h1,h2,h3,h4,h5,h6,p,span,a,strong,blockquote,i,b,u,em{
   font-size: 1em;
   font-weight: inherit;
   font-style: inherit;
@@ -82,67 +86,52 @@ h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
   color: inherit;
 }
 
-/* Evitando problemas con los pseudoelementos de quotes */
-blockquote:before, blockquote:after, q:before, q:after {
-  content: "";
+/* ✔ Avoiding problems with quotes pseudo elements. */
+blockquote::before,blockquote::after,q::before,q::after{
+  content: '';
   content: none;
 }
 
-/* Configurando el texto que es seleccionado */
-::-moz-selection {
-  background-color: var(--negro);
-  color: var(--blanco);
-}
-::selection {
-  background-color: var(--negro);
-  color: var(--blanco);
+/* ✔ Configuring the text selection */
+::selection{
+  background-color: --color-primario;
+  color: --color-secundario;
 }
 
-/* Nivelando problemas de tipografías y colocación de formularios */
-form, input, textarea, select, button, label {
+/* ✔ Leveling problems of fonts and placement of forms. */
+form, input, textarea, select, button, label{
   font-family: inherit;
   font-size: inherit;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto; /** Si el texto no cabe en el contenedor/linea, coloca un "-" en el corte de la palabra */
   background-color: transparent;
-  color: inherit;
   display: block;
-  /* opcional */
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  color: inherit;
+  /* opcional */ appearance: none;
 }
 
-/* Reseteando las tablas */
-table, tr, td {
+/* ✔ Resetting tablels */
+table,tr,td{
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Evitando problemas con los SVG */
-svg {
+/* ✔ Avoid problems with SVG */
+svg{
   width: 100%;
   display: block;
   fill: currentColor;
 }
 
-/* Configurando la tipografía para toda la web */
-body {
+/* ✔ Configuring the typography of the entire web */
+body{
   min-height: 100vh;
   font-size: 100%;
   font-family: var(--tipo-principal);
-  color: var(--negro);
-  /* opcional */
-  line-height: 1.4em;
-  /* opcional */
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-  /* opcional */
-  font-smooth: always;
-  /* opcional */
-  -webkit-font-smoothing: antialiased;
-  /* opcional */
-  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-primario);
+  background-color: var(--color-secundario);
+  /* optional */ line-height: 1.4em; /* Line spacing recommendation: between 1.4em and 1.6em */
+  /* optional */ /*hyphens: auto;*/
+  /* optional */ font-smooth: always; /* To better define the letter */
+  /* optional */ --webkit-font-smoothing: antialiased;
+  /* optional */ --moz-osx-font-smoothing: grayscale;
 }
