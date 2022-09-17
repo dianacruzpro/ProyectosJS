@@ -1,2 +1,147 @@
-@import url("reset.css");
+/* @import url("reset.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;900&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+  border:0;
+  box-sizing: border-box; /* To avoid problems in box model */
+  vertical-align: baseline; /* To align text & images */
+  transition: background .3s;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dark{
+  background: #282c2f;
+}
+
+.calculator{
+  position: relative;
+  /* width: 21.25em; */
+  width: 25em;
+  max-width: 25em;
+  padding: 20px;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow:  10px 10px 20px #b5b5b5,
+              -10px -10px 20px #ffffff;
+}
+
+.dark .calculator{
+  background: #282c2f;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, .25),
+              -15px -15px 20px rgba(255, 255, 255, .1);
+}
+
+.buttons{
+  position: relative;
+  display: grid;
+  max-width: 25em;
+}
+
+#value{
+  position: relative;
+  grid-column: span 4;
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 100%;
+  text-align: end;
+  color: var(--color-1);
+  height: 6em;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #b5b5b5,
+              inset -5px -5px 10px #ffffff;
+  padding:20px;
+  margin-bottom: 1em;
+}
+
+.dark #value{
+  background: #282c2f;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, .5),
+              inset -5px -5px 10px rgba(255, 255, 255, .1);
+  color: #e0e0e0;
+}
+
+.span{
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow:  5px 5px 10px #b5b5b5,
+              -5px -5px 10px #ffffff;
+  margin: .4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2em;
+  min-width: 3em;
+}
+
+.span:active{
+  box-shadow: inset 5px 5px 10px #b5b5b5,
+              inset -5px -5px 10px #ffffff;
+  color: #555;
+}
+
+
+.dark .span{
+  background: #282c2f;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+             -5px -5px 10px rgba(255, 255, 255, .1);
+  color: #e0e0e0;
+}
+.dark .span:active{
+  background: #282c2f;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, .5),
+              inset -5px -5px 10px rgba(255, 255, 255, .1);
+  color: #555;
+}
+
+#clear{
+  grid-column: span 2;
+  background: rgb(146, 0, 0);
+  color: #e0e0e0;
+}
+
+#plus{
+  grid-row: span 2;
+  background: rgb(0, 2, 104);
+  color: #e0e0e0;
+}
+
+#equal{
+  background: rgb(17, 104, 0);
+  color: #e0e0e0;
+}
+
+.toggleBtn{
+  width: 50px;
+  height: 50px;
+  background-image: url('../../../img/night.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+              -5px -5px 10px #fff;
+  cursor: pointer;
+}
+
+
+.dark .toggleBtn{
+  background-image: url('../../../img/day.png');
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .5),
+  -5px -5px 10px #555;
+}
