@@ -1,9 +1,9 @@
-let CARDS = 6;
+let CARDS = 8;
 
 //Peticion de pokemones al api
 
 for (let i = 1; i <= CARDS; i++) {
-  let id = getRandomId(150)
+  let id = getRandomId(200)
   searchPokemonById(id)
 }
 
@@ -56,6 +56,40 @@ async function searchPokemonById(id){
   pokemones.forEach(pokemon=>{
     pokemon.addEventListener('dragstart', e=>{
       e.dataTransfer.setData('text', e.target.id)
+    })
+  })
+
+  let names = document.querySelectorAll('.name')
+  let wrongMSG = document.querySelector('.wrong');
+  let point = 0;
+
+  names = [...names]
+  names.forEach(name =>{
+    name.addEventListener('dragover', (e)=>{
+      e.preventDefault(); //Previniendo el dragover, para que funcione el drop
+      // console.log('dragover');
+    })
+    name.addEventListener('drop', (e)=>{
+
+      const draggableElementData = e.dataTransfer.getData('text');
+      let pokemonElement = document.querySelector(`#${draggableElementData}`)
+
+      console.log(draggableElementData);
+      console.log(pokemonElement);
+      if(e.target.innerText == draggableElementData){
+        console.log('Si son iguales')
+        point++;
+        e.target.innerHTML='';
+        e.target.appendChild(pokemonElement);
+        wrongMSG.innerHTML = 'Acertado!'
+
+        if(point == CARDS){
+          draggableElements.innerHTML = `<p class="win">Ganaste!</p>`
+        }
+      }else{
+        console.log('No son iguales');
+        wrongMSG.innerHTML = 'Ups!'
+      }
     })
   })
 }

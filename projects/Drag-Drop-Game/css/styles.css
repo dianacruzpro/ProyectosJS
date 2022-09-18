@@ -28,11 +28,11 @@ body{
 }
 
 .h1{
-  font-size: 4.5vw;
+  font-size: 3.5vw;
 }
 
 .h2{
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
 
 .h1,.h2{
@@ -45,16 +45,29 @@ body{
 .name{
   border: 2px dashed #330055;
   min-width: 5em;
-  height: 6em;
+  min-height: 6em;
+  max-height: 12em;
   padding: 0 10px;
   display: grid;
   place-content: center;
   font-size: .8em;
-  text-transform: capitalize;
 }
 
 .image{
   max-width: 150px;
+}
+
+.wrong,
+.win{
+  text-align: center;
+  font-size: 2em;
+  color: #fff;
+  padding: 15px;
+}
+
+.win{
+  font-size: 3em;
+  color: #ffd700;
 }
 
 @media screen and (max-width: 750px){
