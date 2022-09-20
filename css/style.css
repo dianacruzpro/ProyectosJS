@@ -1,9 +1,7 @@
 @import url("reset.css");
-
 body{
   background: #f0db4f;
 }
-
 .container{
   width: 100%;
   height: 100vh;
@@ -13,21 +11,18 @@ body{
   align-items: center;
   padding: 0 40px;
 }
-
 .title{
   text-align: center;
   width: 100%;
-  font-size: 12vw;
+  font-size: 10vw;
   font-weight: 900;
   margin: .2em 0;
-  /* color: #e0e5eb; */
-  /* color: #ffdd00; */
+  /* color: #f0db4f; */
   color: #323330;
   text-shadow: -5px -5px 10px #fffd8e66,
   5px 5px 10px rgba(0, 0, 0, .4);
   line-height: .9em;
 }
-
 .gallery{
   width: 100%;
   border-radius: 20px;
@@ -40,18 +35,22 @@ body{
   grid-auto-rows: minmax(min-content, 15em);
   gap: 1em;
 }
-
 @media screen and (max-width: 860px) {
   .gallery{
     grid-template-columns: repeat(2, 1fr);
+  }
+  .title{
+    font-size: 12vw;
   }
 }
 @media screen and (max-width: 650px) {
   .gallery{
     grid-template-columns: 1fr;
   }
+  .title{
+    font-size: 15vw;
+  }
 }
- 
 .gallery__proyect{
   position: relative;
   /* width: 20em;
@@ -62,16 +61,14 @@ body{
   overflow: hidden;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, .8);
 }
-
 .proyect__img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
-  filter: grayscale(1);
+  filter: grayscale(1) blur(0px);
   transition: .5s;
 }
-
 .proyect__title{
   position: absolute;
   width: 100%;
@@ -81,8 +78,9 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #e0e5eb;
-  font-size: 2em;
+  color: #ffffff;
+  font-size: 2.5em;
+  font-weight: 700;
   padding: .5em;
   cursor: pointer;
   animation: animate .8s reverse;
@@ -90,12 +88,13 @@ body{
   filter: blur(4px);
   line-height: 1.2em;
 }
-
+.gallery__proyect:nth-child(2) .proyect__title{
+  color: #323330;
+}
 .gallery__proyect:hover .proyect__title{
   filter: blur(0px);
 }
-
 .gallery__proyect:hover .proyect__img{
   transition: .5s;
-  filter: grayscale(0);
+  filter: grayscale(0) blur(4px);
 }
