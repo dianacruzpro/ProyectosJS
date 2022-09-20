@@ -73,11 +73,10 @@ async function searchPokemonById(id){
 
       const draggableElementData = e.dataTransfer.getData('text');
       let pokemonElement = document.querySelector(`#${draggableElementData}`)
-
-      console.log(draggableElementData);
-      console.log(pokemonElement);
+      // console.log(draggableElementData);
+      // console.log(pokemonElement);
       if(e.target.innerText == draggableElementData){
-        console.log('Si son iguales')
+        // console.log('Si son iguales')
         point++;
         e.target.innerHTML='';
         e.target.appendChild(pokemonElement);
@@ -87,7 +86,7 @@ async function searchPokemonById(id){
           draggableElements.innerHTML = `<p class="win">Ganaste!</p>`
         }
       }else{
-        console.log('No son iguales');
+        // console.log('No son iguales');
         wrongMSG.innerHTML = 'Ups!'
       }
     })
